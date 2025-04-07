@@ -1,0 +1,24 @@
+<h2>Census Records</h2>
+<h2>This is the List Component!</h2>
+
+<table border="1" cellpadding="8" cellspacing="0">
+  <tr>
+    <th>Year</th>
+    <th>Census Taker</th>
+    <th>People in Household</th>
+    <th>State</th>
+    <th>City</th>
+    <th>Actions</th>
+  </tr>
+  <tr *ngFor="let record of censusRecords">
+    <td>{{ record.year }}</td>
+    <td>{{ record.censusTaker }}</td>
+    <td>{{ record.numberOfPeople }}</td>
+    <td>{{ record.state }}</td>
+    <td>{{ record.city }}</td>
+    <td>
+      <a [routerLink]="['/edit', record._id]">Edit</a> |
+      <button (click)="deleteCensus(record._id!)">Delete</button>
+    </td>
+  </tr>
+</table>
